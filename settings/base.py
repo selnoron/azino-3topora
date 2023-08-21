@@ -1,10 +1,8 @@
-
-
 from pathlib import Path
 import sys
 import os
 
-
+# Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 sys.path.append(BASE_DIR)
 sys.path.append(
@@ -12,13 +10,14 @@ sys.path.append(
 )
 
 
-SECRET_KEY = 'django-insecure-k2#9i_3z@)6+0z@2pvm2=5^3)m#mho%#=a(a!#9zmawqvd^6%v'
-
+SECRET_KEY = 'django-insecure-50uatvnx!#*ki=2sm*%(&d)5w+3d-tale$l&ke%ul(7n&)bx5p'
 
 DEBUG = True
 
 ALLOWED_HOSTS = []
 
+
+# Application definition
 
 DJANGO_APPS = [
     'django.contrib.admin',
@@ -28,7 +27,6 @@ DJANGO_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
 ]
-
 PROJECT_APPS = [
     'auths.apps.AuthsConfig',
     'randoms.apps.RandomsConfig',
@@ -36,6 +34,7 @@ PROJECT_APPS = [
 ]
 
 INSTALLED_APPS = PROJECT_APPS + DJANGO_APPS
+
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -68,6 +67,9 @@ TEMPLATES = [
 WSGI_APPLICATION = 'settings.wsgi.application'
 
 
+# Database
+# https://docs.djangoproject.com/en/4.2/ref/settings/#databases
+
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
@@ -75,6 +77,9 @@ DATABASES = {
     }
 }
 
+
+# Password validation
+# https://docs.djangoproject.com/en/4.2/ref/settings/#auth-password-validators
 
 AUTH_PASSWORD_VALIDATORS = [
     {
@@ -92,6 +97,9 @@ AUTH_PASSWORD_VALIDATORS = [
 ]
 
 
+# Internationalization
+# https://docs.djangoproject.com/en/4.2/topics/i18n/
+
 LANGUAGE_CODE = 'en-us'
 
 TIME_ZONE = 'UTC'
@@ -101,7 +109,13 @@ USE_I18N = True
 USE_TZ = True
 
 
+# Static files (CSS, JavaScript, Images)
+# https://docs.djangoproject.com/en/4.2/howto/static-files/
+
 STATIC_URL = 'static/'
+
+# Default primary key field type
+# https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
