@@ -1,11 +1,28 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>WHEEL</title>
+    <title>Luck Wheel</title>
+    <link rel="stylesheet" href="../../static/css/style.css">
 </head>
 <body>
-    <h1>КРУТИМ КОЛЕСО!!! ВЫПАДАЕТ: {{ random_number }}</h1>
+    <center>
+    <img class="rot" src="../../static/images/pngwing.com.png"/><br>
+    <div class="ruletka">
+        <div class="ran">
+            <span>{{number}}</span>
+        </div>
+        <div class="choise">
+            {% for i in rng %}
+            {% if i == 8 or i == 16 or i == 24 %}
+            <br>
+            {% endif %}
+            <input type="text" value="{{ vybor|slice:':i' }}" class="num">
+            {% endfor %}
+        </div>
+    </div>
+    </center>
+    
 </body>
 </html>

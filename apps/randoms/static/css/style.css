@@ -1,0 +1,54 @@
+.rot {
+    width: 500px;
+    margin: auto;
+    border-radius: 4px;
+    /* Here we declare our inline animation */
+    border-radius: 50%;
+    margin: auto;
+}
+
+.rot {
+    animation-name: rotate;
+	animation-duration: 3s;
+	animation-timing-function: linear;
+	animation-iteration-count: infinite;
+}
+
+/* Here we define our animation with the name "rotate" */
+@keyframes rotate {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(359deg);
+    }
+}
+
+.ruletka {
+    width: 500px;
+    height: 300px;
+    border: 2px dotted gold;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.choise {
+    width: 100%;
+    height: 60%;
+}
+
+.ran {
+    height: 30%;
+    width: 100%;
+}
+
+.ran span {
+    color: rgb(173, 147, 0);
+    font-size: 35px;
+}
+.num {
+    width: 20px;
+    font-size: 20px;
+}
