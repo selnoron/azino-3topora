@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Luck Wheel</title>
-    <link rel="stylesheet" href="../../static/css/style.css">
+    <link rel="stylesheet" href="../../static/css/whhel.css">
 </head>
 <body>
     <center>
@@ -14,12 +14,19 @@
             <span>{{number}}</span>
         </div>
         <div class="choise">
-            {% for i in rng %}
-            {% if i == 8 or i == 16 or i == 24 %}
-            <br>
+            
+            <form action="/random" method="post"> {% csrf_token %}
+            {% for i in vybor %}
+                <div style="width: 50px; border: solid black 1px; display: inline-block;">
+                    <input type="radio" class="num" name="ch" id="{{i}}" value="{{ i }}"> <span for="{{i}}">{{ i }}</span>
+                </div>
+            {% if i == 17 or i == 23 or i == 31 %}
+                <br>
             {% endif %}
-            <input type="text" value="{{ vybor|slice:':i' }}" class="num">
             {% endfor %}
+            <br> <br>
+            <input type="submit" value="START">
+            </form>
         </div>
     </div>
     </center>
