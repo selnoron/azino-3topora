@@ -7,6 +7,7 @@ from django.contrib.auth.models import (
 )  
 from django.forms import ValidationError
 import datetime
+from django.db.models.query import QuerySet
 
 
 class MyUserManager(BaseUserManager):
@@ -78,7 +79,15 @@ class MyUser(AbstractBaseUser,PermissionsMixin):
     
     @property
     def balance(self) -> float:
-        ...
+        transactions: QuerySet[Transaction] = \
+            Transaction.objects.filter(user=self.pk)
+        result: float = 0
+        for trans in transactions:
+            if trans.is_filled:
+                result += trans.amout
+            else:
+                result -= trans.amout
+        return result
 
 
     REQUIRED_FIELDS = []

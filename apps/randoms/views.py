@@ -34,18 +34,37 @@ class RandomView(View):
         self.number = random.choice(self.massive)
         if data.get('ch') != self.number:
             return redirect('/random/result/bad')
-        else:
-            return redirect('/random/result/good')
+        return redirect('/random/result/good')
 
-def good_result(request):
-    if request.method == "GET":
-        return HttpResponse('<h1>!!!Congratulations!!!</h1> <form action="/random/result/good" method="post"> <input type="submit" value="Thanks!!"/> </form>')
+class GoodResult(View):
+    def get(
+        self, request: HttpRequest  
+    ) -> HttpResponse:
+        return render(
+            request=request,
+            template_name="random/goodresult.html",
+            context={
+            }
+        )
     
-    return redirect('/random')
+    def post(
+        self, request: HttpRequest
+    ) -> HttpRequest:
+        return redirect('/random')
 
 
-def bad_result(request):
-    if request.method == "GET":
-        return HttpResponse('<h1>!!!Loooooser!!!</h1> <form action="/random/result/bad" method="post"> <input type="submit" value="Thanks!!"/> </form>')
+class  BadResult(View):
+    def get(
+        self, request: HttpRequest  
+    ) -> HttpResponse:
+        return render(
+            request=request,
+            template_name="random/badresult.html",
+            context={
+            }
+        )
     
-    return redirect('/random')
+    def post(
+        self, request: HttpRequest
+    ) -> HttpRequest:
+        return redirect('/random')

@@ -9,8 +9,8 @@ from django.conf.urls.static import static
 urlpatterns = [
     path('admin/', admin.site.urls),
 
-    path("random", include("randoms.urls")),
-    path("auth", include("auths.urls")),
+    path("random/", include("randoms.urls")),
+    path("auth/", include("auths.urls")),
     path("", include("main.urls"))
 
 ]
