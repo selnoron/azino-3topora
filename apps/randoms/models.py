@@ -1,6 +1,7 @@
 from django.db import models
 from auths.models import MyUser
 import os
+from django.db.models.manager import Manager
 
 
 class Banner(models.Model):
@@ -32,6 +33,13 @@ class Banner(models.Model):
         extension = filename.split('.')[-1]
         new_filename = f'{self.name}.{extension}'
         return os.path.join(base_path, new_filename)
+    
+
+class BetManager(Manager):
+
+    def create(self, **kwargs: dict) -> 'Bet':
+        return super().create(**kwargs)
+
 
 class Bet(models.Model):
     """
@@ -63,8 +71,11 @@ class Bet(models.Model):
         decimal_places=1
     )
 
+    object = BetManager()
+
     class Meta:
         ordering = ('-id',)
         verbose_name = 'Ставка'
         verbose_name_plural = 'Ставки'
     
+print(Bet.object.create())
