@@ -1,7 +1,7 @@
 from django.db import models
-from auths.models import MyUser
+from auths.models import MyUser, Transaction
 import os
-from django.db.models.manager import Manager
+from django.db.models.manager import Manager 
 
 
 class Banner(models.Model):
@@ -77,5 +77,18 @@ class Bet(models.Model):
         ordering = ('-id',)
         verbose_name = 'Ставка'
         verbose_name_plural = 'Ставки'
+
+    def win(self) -> None:
+        ...
+
+    def lose(self) -> None:
+        ...
+
+    def save(self, *args, **kwargs) -> None:
+        Transaction.objects.create(
+            user=self.who,
+            amout=self.amout
+        )
+        return super().save(*args, **kwargs)
     
-print(Bet.object.create())
+    
