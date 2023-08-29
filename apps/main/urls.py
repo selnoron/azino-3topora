@@ -1,7 +1,7 @@
 from django.urls import path, include
 from django.contrib import admin
 from main.views import main_page
-from randoms.views import RandomView
+from randoms.viewes.random_view import RandomView
 from django.conf import settings
 from django.conf.urls.static import static
 

@@ -1,4 +1,4 @@
-from auths.models.my_user import MyUserManager, MyUser
-from auths.models.transaction import Transaction
-from auths.models.bank_card import BankCard
-from auths.models.activation_code import ActivationCode
+from auths.modelss.my_user import MyUserManager, MyUser
+from auths.modelss.transaction import Transaction
+from auths.modelss.bank_card import BankCard
+from auths.modelss.activation_code import ActivationCode

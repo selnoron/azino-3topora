@@ -8,7 +8,7 @@ from django.contrib.auth.models import (
 from django.forms import ValidationError
 import datetime
 from django.db.models.query import QuerySet
-from models.my_user import MyUser
+from auths.modelss.my_user import MyUser
 
 
 class Transaction(models.Model):
