@@ -33,8 +33,8 @@ class Wheel(View):
         data = request.POST
         self.number = random.choice(self.massive)
         if data.get('ch') != self.number:
-            return redirect('/wheel/random/result/bad')
-        return redirect('/wheel/random/result/good')
+            return redirect('result/bad')
+        return redirect('result/good')
     
 
 class GoodResult(View):
@@ -51,7 +51,7 @@ class GoodResult(View):
     def post(
         self, request: HttpRequest
     ) -> HttpRequest:
-        return redirect('/random')
+        return redirect('/random/wheel')
 
 
 class  BadResult(View):
@@ -68,4 +68,4 @@ class  BadResult(View):
     def post(
         self, request: HttpRequest
     ) -> HttpRequest:
-        return redirect('/random')
+        return redirect('/random/wheel')

@@ -15,10 +15,10 @@
         </div>
         <div class="choise">
             
-            <form action="/random/" method="post"> {% csrf_token %}
+            <form action="/random/wheel/" method="post"> {% csrf_token %}
             {% for i in vybor %}
                 <div style="width: 50px; border: solid black 1px; display: inline-block;">
-                    <input type="radio" class="num" name="ch" id="{{i}}" value="{{ i }}"> <span for="{{i}}">{{ i }}</span>
+                    <input type="radio" class="num" name="ch" id="{{i}}" value="{{ i }}"> <span for="{{ i }}">{{ i }}</span>
                 </div>
             {% if i == 17 or i == 23 or i == 31 %}
                 <br>
