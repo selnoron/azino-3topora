@@ -27,4 +27,12 @@ class RegisterView(View):
         )
 
     def post(self, request: HttpRequest) -> HttpResponse:
-        ...
+        form = RegisterForm()
+        form.is_valid()
+        return render(
+            request=request,
+            template_name=self.template_name,
+            context={
+                'form': form
+            }
+        )

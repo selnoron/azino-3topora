@@ -1,4 +1,6 @@
 from django import forms
+from typing import Any, Dict
+from django.core.exceptions import ValidationError
 
 
 class RegisterForm(forms.Form):
@@ -18,3 +20,10 @@ class RegisterForm(forms.Form):
         label='repeat password',
         min_length=6
     )
+
+    def clean(self) -> Dict[str, Any]:
+        return super().clean()
+    
+    def clean_password(self) -> Dict[str, Any]:
+        if self.cleaned_data['password'] != self.changed_data['password2']:
+            raise ValidationError()
