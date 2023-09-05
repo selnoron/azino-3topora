@@ -5,25 +5,27 @@ from django.core.exceptions import ValidationError
 
 class RegisterForm(forms.Form):
     email = forms.EmailField(
-        label='email',
-        max_length=200
+        max_length=200,
+        label='email'
     )
     nickname = forms.CharField(
-        ladel='your nickname',
-        max_length=100
+        max_length=100,
+        label='your nickname'
+       
     )
     password = forms.CharField(
-        label='password',
-        min_length=6
+        min_length=6,
+        label='password'
     )
     password2 = forms.CharField(
-        label='repeat password',
-        min_length=6
+        min_length=6,
+        label='repeat password'
     )
 
     def clean(self) -> Dict[str, Any]:
         return super().clean()
     
-    def clean_password(self) -> Dict[str, Any]:
-        if self.cleaned_data['password'] != self.changed_data['password2']:
+    def clean_password2(self) -> Dict[str, Any]:
+        if self.cleaned_data['password'] != self.cleaned_data['password2']:
             raise ValidationError()
+        return self.cleaned_data
