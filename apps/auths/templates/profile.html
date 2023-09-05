@@ -7,6 +7,15 @@
     <title>Document</title>
 </head>
 <body>
-    HELLO
+    {{user.id}} <br>
+    {{user.nickname}} <br>
+    {{user.email}} <br>
+    {{user.password}} <br>
+
+    {% for i in trans %}
+    {{ i }} <br>
+    {% endfor %}
+
+
 </body>
 </html>
